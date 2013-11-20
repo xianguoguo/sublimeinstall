@@ -10,6 +10,14 @@
 INSTALL="/home/agd/Development/sublime/sublime"
 VERSION="3.3047"
 EXECUTABLE="sublime_text"
+INSTALL="/usr/local/sublime"
+INSTALLBIN="/usr/local/bin/subl3"
+INSTALLSHORTCUT="/usr/share/applications/sublime-text-3.desktop"
+
+# Copy to the main area
+mkdir $INSTALL
+cp -fr $DISTRIB/$VERSION $INSTALL/$VERSION
+
 
 # Desktop Shortcut
 SHORTCUT="[Desktop Entry]
@@ -17,7 +25,7 @@ Name=Sublime Text 3
 GenericName=Text Editor
 Comment=Sophisticated text editor for code, markup and prose
 Exec=$INSTALL/$VERSION/$EXECUTABLE %F
-Icon=$INSTALL/$VERSION/Icon/128x128/sublime_text.png
+Icon=$INSTALL/$VERSION/Icon/128x128/sublime-text.png
 Terminal=false
 MimeType=text/plain;
 Type=Application
@@ -37,6 +45,8 @@ else
 fi"
 
 
-echo "${COMMAND}" > "/usr/local/bin/sublime"
-chmod +x "/usr/local/bin/sublime"
-echo "${SHORTCUT}" > "/usr/share/applications/sublime-text-3.desktop"
+echo "${COMMAND}" > $INSTALLBIN
+chmod 755 $INSTALLBIN
+chmod -R 755 $INSTALL
+echo "${SHORTCUT}" > $INSTALLSHORTCUT
+chmod 644 $INSTALLSHORTCUT
