@@ -7,8 +7,8 @@
 # I personally like to keep this install very mobile
 
 # Set these values
-INSTALL="/home/agd/Development/sublime/sublime"
-VERSION="3.3047"
+DISTRIB="/home/agd/Development/sublime/sublime"
+VERSION="3.3059"
 EXECUTABLE="sublime_text"
 INSTALL="/usr/local/sublime"
 INSTALLBIN="/usr/local/bin/subl3"
@@ -17,7 +17,6 @@ INSTALLSHORTCUT="/usr/share/applications/sublime-text-3.desktop"
 # Copy to the main area
 mkdir $INSTALL
 cp -fr $DISTRIB/$VERSION $INSTALL/$VERSION
-
 
 # Desktop Shortcut
 SHORTCUT="[Desktop Entry]
